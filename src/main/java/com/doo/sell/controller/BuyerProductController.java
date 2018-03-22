@@ -7,8 +7,7 @@ import com.doo.sell.VO.ResultVO;
 import com.doo.sell.bean.ProductCategory;
 import com.doo.sell.bean.ProductInfo;
 import com.doo.sell.service.ProductCategoryService;
-import com.doo.sell.service.ProductInfoService;
-import com.doo.sell.service.impl.ProductInfoServiceImpl;
+import com.doo.sell.service.ProductService;
 import com.doo.sell.utils.ResultVOUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  *
@@ -29,14 +26,14 @@ import java.util.stream.Collectors;
 public class BuyerProductController {
 
     @Autowired
-    private ProductInfoService productInfoService;
+    private ProductService productService;
 
     @Autowired
     private ProductCategoryService productCategoryService;
     @GetMapping("/list")
     public ResultVO list(){
         //1. 查询所有在售的商品
-        List<ProductInfo> productInfoList = productInfoService.findSellingAll();
+        List<ProductInfo> productInfoList = productService.findSellingAll();
 
         //2. 查询商品类别
         List<Integer> categoryList = new ArrayList<>();

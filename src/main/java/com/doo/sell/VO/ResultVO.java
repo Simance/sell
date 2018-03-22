@@ -10,7 +10,7 @@ public class ResultVO<T> {
 
     private Integer code;
 
-    private String msg;
+    private String msg = ""; //设置默认值，防止返回null
 
     private T data;
 }
