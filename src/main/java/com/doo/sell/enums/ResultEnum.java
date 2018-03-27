@@ -18,6 +18,7 @@ public enum ResultEnum {
     UPDATE_FAIL(17, "订单更新失败"),
     CART_EMPTY(18, "购物车为空"),
     ORDER_OWNER_ERROR(19, "此订单不属于当前用户"),
+    WECHAT_MP_ERROR(20, "微信网页授权出错"),
     ;
 
     private Integer code;
